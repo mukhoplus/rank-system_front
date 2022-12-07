@@ -1,23 +1,22 @@
 import React from 'react'
-import {NavLink} from "react-router-dom"
 
 function NavBar(){
     return(
         <nav>
             <div>
-                <NavLink to="/">
+                <a href="/">
                     메인 페이지
-                </NavLink>
+                </a>
             </div>
             <div>
-                <NavLink to="/">
+                <a href="/addgamer">
                     선수 추가
-                </NavLink>
+                </a>
             </div>
             <div>
-                <NavLink to="/">
+                <a href="/">
                     전적 추가
-                </NavLink>
+                </a>
             </div>
         </nav>
     );

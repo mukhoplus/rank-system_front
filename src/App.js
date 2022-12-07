@@ -11,6 +11,7 @@ import NavBar from './components/views/NavBar';
 import Main from './components/views/Main';
 import SignUp from './components/views/SignUp';
 import Login from './components/views/Login';
+import AddGamer from './components/views/AddGamer'
 import Footer from './components/views/Footer';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
                 <Route exact path="/" component={Main} />
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={SignUp} />
+                <Route path="/addgamer" component={AddGamer} />
             </Switch>
 
             <Footer />

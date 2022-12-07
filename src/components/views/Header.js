@@ -29,8 +29,8 @@ function Header(){
     const [permission, setPermission] = useState('');
     
     useEffect(()=>{
-        async function getInfo(){
-            await axios.get('/hello')
+        function getInfo(){
+            axios.get('/hello')
             .then(response=>{
                 setId(response.data.id);
                 setName(response.data.name);
@@ -66,6 +66,7 @@ function Header(){
             );
         }
     }
+
 }
 
 export default Header
