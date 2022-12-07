@@ -1,7 +1,6 @@
 import React from 'react'
 
 function SignUp(){
-
     return(
         <div id='signup'>
             <form id="SignUpForm" action="/signup" method="post">

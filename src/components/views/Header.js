@@ -24,25 +24,58 @@ function Header(){
         requestLogout();
     }
     
-    const [id, setId] = useState('');
-    const [name, setName] = useState('');
-    const [permission, setPermission] = useState('');
+    // const [id, setId] = useState();
+    // const [name, setName] = useState();
+    // const [permission, setPermission] = useState();
     
-    useEffect(()=>{
-        function getInfo(){
-            axios.get('/hello')
-            .then(response=>{
-                setId(response.data.id);
-                setName(response.data.name);
-                setPermission(response.data.permission);
-            })
-            .catch(error=>console.log(error))
-        }
+    // useEffect(()=>{
+    //     async function getInfo(){
+    //         await axios.get('/hello', { withCredentials: true })
+    //         .then(response=>{
+    //             setId(response.data.id);
+    //             setName(response.data.name);
+    //             setPermission(response.data.permission);
+    //         })
+    //         .catch(error=>console.log(error))
+    //     }
         
-        getInfo();
-    }, []);
+    //     getInfo();
+    // }, {});
 
-    if(['/signup', '/login'].indexOf(window.location.pathname) === -1){
+    function getCookies(){
+        
+        function isCookie(obj){
+            if(JSON.stringify(obj) === '[""]') return 0;
+            else return Object.keys(obj).length;
+        }
+
+        let cookie = {};
+        const allCookies = document.cookie.split('; ');
+        allCookies.forEach(c =>{
+            const temp = c.split('=');
+            cookie[temp[0]] = temp[1];
+        });
+
+        const id = isCookie(allCookies) ? cookie['id'] : "";
+        const name = isCookie(allCookies) ? cookie['name'] : "";
+        const permission = isCookie(allCookies) ? cookie['permission'] : "";
+
+        return [id, name, permission];
+    }
+    
+    let data = getCookies();
+    const id = data[0];
+    const name = data[1];
+    const permission = data[2];
+    
+    
+    if(['/addgamer', '/addgame'].indexOf(window.location.pathname) !== -1){
+        if(permission !== 'true'){
+            alert('권한이 없습니다.\n운영자에게 문의하세요.');
+            window.location.href = "/";
+        }
+    }
+    if(['/signup', '/login'].indexOf(window.location.pathname) === -1){        
         // 비로그인 상태 랜더링
         if(name === ""){
             return(
