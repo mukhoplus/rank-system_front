@@ -28,14 +28,12 @@ function SignUp(){
             id.focus();
             return false;
         }
-
         let checkPassword = /^[a-zA-Z0-9-_!@#$%^*+=]+$/g;
         if(!checkPassword.test(password) || !(4 <= password.length && password.length <= 20)){
             alert('비밀번호는 4~20자의 영어 대소문자, 숫자와 특수기호만 사용 가능합니다.');
             password.focus();
             return false;
         }
-
         let checkName = /^[a-zA-Z0-9가-힣-_!@#$%^*+=]+$/g;
         if(!checkName.test(name) || !(1 <= name.length && name.length <= 10)){
             alert('이름은 1~10자의 한글, 영어 대소문자, 숫자와 특수기호만 사용 가능합니다.');

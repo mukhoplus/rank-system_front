@@ -14,7 +14,7 @@ function NavBar(){
                 </a>
             </div>
             <div>
-                <a href="/">
+                <a href="/addgame">
                     전적 추가
                 </a>
             </div>

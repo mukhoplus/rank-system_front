@@ -43,7 +43,6 @@ function Header(){
     // }, {});
 
     function getCookies(){
-        
         function isCookie(obj){
             if(JSON.stringify(obj) === '[""]') return 0;
             else return Object.keys(obj).length;
@@ -68,13 +67,13 @@ function Header(){
     const name = data[1];
     const permission = data[2];
     
-    
     if(['/addgamer', '/addgame'].indexOf(window.location.pathname) !== -1){
         if(permission !== 'true'){
             alert('권한이 없습니다.\n운영자에게 문의하세요.');
             window.location.href = "/";
         }
     }
+    
     if(['/signup', '/login'].indexOf(window.location.pathname) === -1){        
         // 비로그인 상태 랜더링
         if(name === ""){
