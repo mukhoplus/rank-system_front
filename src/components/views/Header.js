@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react';
 import axios from 'axios';
 
 function Header(){
@@ -23,24 +23,6 @@ function Header(){
         }
         requestLogout();
     }
-    
-    // const [id, setId] = useState();
-    // const [name, setName] = useState();
-    // const [permission, setPermission] = useState();
-    
-    // useEffect(()=>{
-    //     async function getInfo(){
-    //         await axios.get('/hello', { withCredentials: true })
-    //         .then(response=>{
-    //             setId(response.data.id);
-    //             setName(response.data.name);
-    //             setPermission(response.data.permission);
-    //         })
-    //         .catch(error=>console.log(error))
-    //     }
-        
-    //     getInfo();
-    // }, {});
 
     function getCookies(){
         function isCookie(obj){

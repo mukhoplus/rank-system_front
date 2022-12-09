@@ -12,6 +12,7 @@ import Main from './components/views/Main';
 import SignUp from './components/views/SignUp';
 import Login from './components/views/Login';
 import AddGamer from './components/views/AddGamer'
+import AddGame from './components/views/AddGame'
 import Footer from './components/views/Footer';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={SignUp} />
                 <Route path="/addgamer" component={AddGamer} />
+                <Route path="/addgame" component={AddGame} />
             </Switch>
 
             <Footer />
