@@ -43,26 +43,30 @@ function SignUp(){
 
         document.SignUpForm.submit();
     }
+
     return(
-        <div id='signup'>
-            <form id="SignUpForm" name="SignUpForm" action="/signup" method="post">
-                <div>
-                    <label for="id">아이디</label>
-                    <input name="id" id="id" required minlength='5' maxlength='20' type="text" placeholder="ID" />
-                </div>
-                <div>
-                    <label for="password">비밀번호</label>
-                    <input name="password" id="password" required minlength='4' maxlength='20' type="password" placeholder="Password" />
-                </div>
-                <div>
-                    <label for="name">이름</label>
-                    <input name="name" id="name" required minlength='1' maxlength='10' type="text" placeholder="Name" />
-                </div>
-                <div>
-                    <button type="button" onClick={valueCheck}>회원가입</button>
-                </div>
-            </form>
-        </div>
+        <body>
+            <h3>회원가입</h3>
+            <div id='signup'>
+                <form id="SignUpForm" name="SignUpForm" action="/signup" method="post">
+                    <div>
+                        <label for="id">아이디</label>
+                        <input name="id" id="id" required minlength='5' maxlength='20' type="text" placeholder="ID" />
+                    </div>
+                    <div>
+                        <label for="password">비밀번호</label>
+                        <input name="password" id="password" required minlength='4' maxlength='20' type="password" placeholder="Password" />
+                    </div>
+                    <div>
+                        <label for="name">이름</label>
+                        <input name="name" id="name" required minlength='1' maxlength='10' type="text" placeholder="Name" />
+                    </div>
+                    <div>
+                        <button type="button" onClick={valueCheck}>회원가입</button>
+                    </div>
+                </form>
+            </div>
+        </body>
     )
 }
 

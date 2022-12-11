@@ -9,6 +9,11 @@ function NavBar(){
                 </a>
             </div>
             <div>
+                <a href="/games">
+                    전적 목록
+                </a>
+            </div>
+            <div>
                 <a href="/addgamer">
                     선수 추가
                 </a>
