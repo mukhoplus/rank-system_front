@@ -4,7 +4,7 @@ import axios from 'axios';
 function Games(){
     const [games, setGames] = useState([]);
     useEffect(()=>{
-        axios.get('/games')
+        axios.get('/getgames')
         .then(response=>{
             setGames(response.data);
         })
