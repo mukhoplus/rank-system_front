@@ -5,7 +5,7 @@ function Title(){
         <body>
             <div>
                 <a href="/">
-                    <h2>ESPers Starcraft System</h2>
+                    <h2>ESPers Starcraft Ranking System</h2>
                 </a>
             </div>
         </body>
