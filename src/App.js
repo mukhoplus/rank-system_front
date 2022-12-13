@@ -5,8 +5,6 @@ import{
     Route,
 } from "react-router-dom";
 
-import Title from './components/views/Title';
-import Header from './components/views/Header';
 import NavBar from './components/views/NavBar';
 import Main from './components/views/Main';
 import SignUp from './components/views/SignUp';
@@ -19,22 +17,24 @@ import Footer from './components/views/Footer';
 function App() {
     return (
         <Router>
-            <Title />
+            <body>
+                <NavBar />
 
-            <Header />
+                <hr/>
+                <div class="container">
+                    <Switch>
+                        <Route exact path="/" component={Main} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/signup" component={SignUp} />
+                        <Route path="/games" component={Games} />
+                        <Route path="/addgamer" component={AddGamer} />
+                        <Route path="/addgame" component={AddGame} />
+                    </Switch>
+                </div>
+                <hr/>
 
-            <NavBar />
-
-            <Switch>
-                <Route exact path="/" component={Main} />
-                <Route path="/login" component={Login} />
-                <Route path="/signup" component={SignUp} />
-                <Route path="/games" component={Games} />
-                <Route path="/addgamer" component={AddGamer} />
-                <Route path="/addgame" component={AddGame} />
-            </Switch>
-
-            <Footer />
+                <Footer />
+            </body>
         </Router>
     );
 }

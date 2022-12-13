@@ -2,10 +2,12 @@ import React from 'react'
 
 function Footer(){
     return(
-        <div>
-            2022, Made By Mukho.
-        </div>
-    )
+        <footer class="footer bg-light">
+            <div id='footer' class="footer text-center">
+                Copyright ⓒ 2022 Made by Mukho. All rights reserved.
+            </div>
+        </footer>
+    );
 }
 
-export default Footer
+export default Footer;

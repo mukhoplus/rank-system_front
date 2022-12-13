@@ -48,57 +48,63 @@ function AddGame(){
     }, []);
     
     return(
-        <body>
-            <h3>전적 추가</h3>
-            <div id='addgame'>
-                <form id="AddGameForm" name="AddGameForm" action="/addgame" method="post">
-                    <div>
-                        <label for="win_user">승리 선수</label>
-                        <select name="win_user" id="win_user">
-                            <option value="">승리 선수</option>
-                            {gamers.map((name) => (
-                                <option value={name} key={name}>
-                                    {name}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                    <div>
-                        <label for="win_race">승리 선수 종족</label>
-                        <select name="win_race" id="win_race">
-                            <option value="">종족 선택</option>
-                            <option value="Terran">Terran</option>
-                            <option value="Protoss">Protoss</option>
-                            <option value="Zerg">Zerg</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="lose_user">패배 선수</label>
-                        <select name="lose_user" id="lose_user">
-                            <option value="">패배 선수</option>
-                            {gamers.map((name) => (
-                                <option value={name} key={name}>
-                                    {name}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                    <div>
-                        <label for="lose_race">패배 선수 종족</label>
-                        <select name="lose_race" id="lose_race">
-                            <option value="">종족 선택</option>
-                            <option value="Terran">Terran</option>
-                            <option value="Protoss">Protoss</option>
-                            <option value="Zerg">Zerg</option>
-                        </select>
-                    </div>
-                    <div>
-                        <button type="button" onClick={valueCheck}>전적 추가</button>
-                    </div>
-                </form>
-            </div>
-        </body>
-    )
+        <div id='addgame'>
+            <h3 class="text-center">전적 추가</h3>
+            <form class="form" id="AddGameForm" name="AddGameForm" action="/addgame" method="post">
+                <div>
+                    <label for="win_user">
+                        <b>승리 선수</b>
+                    </label>
+                    <select name="win_user" id="win_user">
+                        <option value="">승리 선수</option>
+                        {gamers.map((name) => (
+                            <option value={name} key={name}>
+                                {name}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <div>
+                    <label for="win_race">
+                        <b>승리 선수 종족</b>
+                    </label>
+                    <select name="win_race" id="win_race">
+                        <option value="">종족 선택</option>
+                        <option value="Terran">Terran</option>
+                        <option value="Protoss">Protoss</option>
+                        <option value="Zerg">Zerg</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="lose_user">
+                        <b>패배 선수</b>
+                    </label>
+                    <select name="lose_user" id="lose_user">
+                        <option value="">패배 선수</option>
+                        {gamers.map((name) => (
+                            <option value={name} key={name}>
+                                {name}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <div>
+                    <label for="lose_race">
+                        <b>패배 선수 종족</b>
+                    </label>
+                    <select name="lose_race" id="lose_race">
+                        <option value="">종족 선택</option>
+                        <option value="Terran">Terran</option>
+                        <option value="Protoss">Protoss</option>
+                        <option value="Zerg">Zerg</option>
+                    </select>
+                </div>
+                <div>
+                    <button class="btn btn-success" type="button" onClick={valueCheck}>전적 추가</button>
+                </div>
+            </form>
+        </div>
+    );
 }
 
-export default AddGame
+export default AddGame;

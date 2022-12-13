@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function SignUp(){
     const valueCheck = ()=>{
@@ -45,29 +45,33 @@ function SignUp(){
     }
 
     return(
-        <body>
-            <h3>회원가입</h3>
-            <div id='signup'>
-                <form id="SignUpForm" name="SignUpForm" action="/signup" method="post">
-                    <div>
-                        <label for="id">아이디</label>
-                        <input name="id" id="id" required minlength='5' maxlength='20' type="text" placeholder="ID" />
-                    </div>
-                    <div>
-                        <label for="password">비밀번호</label>
-                        <input name="password" id="password" required minlength='4' maxlength='20' type="password" placeholder="Password" />
-                    </div>
-                    <div>
-                        <label for="name">이름</label>
-                        <input name="name" id="name" required minlength='1' maxlength='10' type="text" placeholder="Name" />
-                    </div>
-                    <div>
-                        <button type="button" onClick={valueCheck}>회원가입</button>
-                    </div>
-                </form>
-            </div>
-        </body>
-    )
+        <div id='signup'>
+            <h4 class="text-center">회원가입</h4>
+            <form class="form" id="SignUpForm" name="SignUpForm" action="/signup" method="post">
+                <div class="field">
+                    <label for="id">
+                        <b>아이디</b>
+                    </label>
+                    <input name="id" id="id" required minlength='5' maxlength='20' type="text" placeholder="ID" />
+                </div>
+                <div class="field">
+                    <label for="password">
+                        <b>비밀번호</b>
+                    </label>
+                    <input name="password" id="password" required minlength='4' maxlength='20' type="password" placeholder="Password" />
+                </div>
+                <div class="field">
+                    <label for="name">
+                        <b>이름</b>
+                    </label>
+                    <input name="name" id="name" required minlength='1' maxlength='10' type="text" placeholder="Name" />
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="button" onClick={valueCheck}>회원가입</button>
+                </div>
+            </form>
+        </div>
+    );
 }
 
-export default SignUp
+export default SignUp;

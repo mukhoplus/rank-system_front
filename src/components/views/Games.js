@@ -12,36 +12,40 @@ function Games(){
     }, []);
 
     return(
-        <body>
-            <h3>전적 목록</h3>
-            <table>
-                <th align="center">게임 번호</th>
-                <th align="center">승자</th>
-                <th align="center">패자</th>
-                <th align="center">증감 점수</th>
-                <th align="center">기록자</th>
-                {games.map((game) => (
-                    <tr align="center">
-                        <td>
-                            {game["game_number"]}
-                        </td>
-                        <td>
-                            {game["win_user"]}({game["win_race"]})
-                        </td>
-                        <td>
-                            {game["lose_user"]}({game["lose_race"]})
-                        </td>
-                        <td>
-                            {game["point"]}
-                        </td>
-                        <td>
-                            {game["writer"]}
-                        </td>
-                    </tr>
-                ))}
+        <div id="games">
+            <h4>전적 목록</h4>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <th align="center">게임 번호</th>
+                    <th align="center">승자</th>
+                    <th align="center">패자</th>
+                    <th align="center">증감 점수</th>
+                    <th align="center">기록자</th>
+                </thead>
+                <tbody>
+                    {games.map((game) => (
+                        <tr align="center">
+                            <td>
+                                {game["game_number"]}
+                            </td>
+                            <td>
+                                {game["win_user"]}({game["win_race"]})
+                            </td>
+                            <td>
+                                {game["lose_user"]}({game["lose_race"]})
+                            </td>
+                            <td>
+                                {game["point"]}
+                            </td>
+                            <td>
+                                {game["writer"]}
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
             </table>
-        </body>
+        </div>
     );
 }
 
-export default Games
+export default Games;

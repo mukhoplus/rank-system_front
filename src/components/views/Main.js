@@ -17,46 +17,48 @@ function Main(){
         "Zerg": "Z"
     }
     return(
-        <body>
-            <div>
-                <h3>랭킹</h3>
-            </div>
-            <table>
-                <th align="center">순위</th>
-                <th align="center">이름(종족)</th>
-                <th align="center">점수</th>
-                <th align="center">전적</th>
-                <th align="center">승</th>
-                <th align="center">패</th>
-                <th align="center">승률</th>
-                {ranking.map((gamer) => (
-                    <tr align="center">
-                        <td>
-                            {gamer["rank_num"]}
-                        </td>
-                        <td>
-                            {gamer["name"]}({convert_race[gamer["race"]]})
-                        </td>
-                        <td>
-                            {gamer["rating"]}
-                        </td>
-                        <td>
-                            {gamer["wins"] + gamer["loses"]}
-                        </td>
-                        <td>
-                            {gamer["wins"]}
-                        </td>
-                        <td>
-                            {gamer["loses"]}
-                        </td>
-                        <td>
-                            {gamer["win_rate"]}%
-                        </td>
-                    </tr>
-                ))}
+        <div id='ranking'>
+            <h4>랭킹</h4>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <th align="center">순위</th>
+                    <th align="center">이름(종족)</th>
+                    <th align="center">점수</th>
+                    <th align="center">전적</th>
+                    <th align="center">승</th>
+                    <th align="center">패</th>
+                    <th align="center">승률</th>
+                </thead>
+                <tbody>
+                    {ranking.map((gamer) => (
+                        <tr align="center">
+                            <td>
+                                {gamer["rank_num"]}
+                            </td>
+                            <td>
+                                {gamer["name"]}({convert_race[gamer["race"]]})
+                            </td>
+                            <td>
+                                {gamer["rating"]}
+                            </td>
+                            <td>
+                                {gamer["wins"] + gamer["loses"]}
+                            </td>
+                            <td>
+                                {gamer["wins"]}
+                            </td>
+                            <td>
+                                {gamer["loses"]}
+                            </td>
+                            <td>
+                                {gamer["win_rate"]}%
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
             </table>
-        </body>
+        </div>
     );
 }
 
-export default Main
+export default Main;
