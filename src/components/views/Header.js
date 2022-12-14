@@ -14,9 +14,16 @@ function Header(){
                     alert("잘못된 접근입니다.");
                 }
                 window.location.href = "/";
-            });
+            })
         }
-        requestLogout();
+
+        if([undefined, ""].indexOf(name) !== -1){
+            alert("잘못된 접근입니다.");
+            window.location.href = "/";
+        }
+        else{
+            requestLogout();
+        }
     }
 
     function getCookies(){
@@ -51,9 +58,9 @@ function Header(){
         }
     }
     
-    if(['/signup', '/login'].indexOf(window.location.pathname) === -1){        
+    if(['/signup', '/login'].indexOf(window.location.pathname) === -1){      
         // 비로그인 상태 랜더링
-        if(name === ""){
+        if(name === "" || name == undefined){
             return(
                 <div class="right navbar">
                     <a class="btn btn-outline-primary me-2" href="/login">

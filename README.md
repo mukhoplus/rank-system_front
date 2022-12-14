@@ -4,7 +4,7 @@ ESPers Starcraft Ranking System's Frontend
 
 ## Version
 
-0.2.0
+0.2.1
 
 ### How To Run
 
@@ -14,4 +14,6 @@ ESPers Starcraft Ranking System's Frontend
 
 3. ``git clone https://github.com/Mukholisk/rank-system_front.git frontend``
 
-4. Run spring boot server.
+4. Set database tables.
+
+5. Run spring boot server.
