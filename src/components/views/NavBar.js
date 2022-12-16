@@ -17,6 +17,11 @@ function NavBar(){
                     </a>
                 </li>
                 <li>
+                    <a href="/nameranking" class="nav-link px-2 link-dark">
+                        개인 순위
+                    </a>
+                </li>
+                <li>
                     <a href="/games" class="nav-link px-2 link-dark">
                         전적 목록
                     </a>

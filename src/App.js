@@ -12,6 +12,7 @@ import Login from './components/views/Login';
 import Games from './components/views/Games'
 import AddGamer from './components/views/AddGamer'
 import AddGame from './components/views/AddGame'
+import NameRanking from './components/views/NameRanking'
 import Footer from './components/views/Footer';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
                         <Route path="/games" component={Games} />
                         <Route path="/addgamer" component={AddGamer} />
                         <Route path="/addgame" component={AddGame} />
+                        <Route path="/nameranking" component={NameRanking} />
                     </Switch>
                 </div>
                 <hr/>
