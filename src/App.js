@@ -15,28 +15,61 @@ import AddGame from './components/views/AddGame'
 import Footer from './components/views/Footer';
 
 function App() {
-    return (
-        <Router>
-            <body>
-                <NavBar />
+    function getCookies(){
+        function isCookie(obj){
+            if(JSON.stringify(obj) === '[""]') return 0;
+            else return Object.keys(obj).length;
+        }
 
-                <hr/>
-                <div class="container">
-                    <Switch>
-                        <Route exact path="/" component={Main} />
-                        <Route path="/login" component={Login} />
-                        <Route path="/signup" component={SignUp} />
-                        <Route path="/games" component={Games} />
-                        <Route path="/addgamer" component={AddGamer} />
-                        <Route path="/addgame" component={AddGame} />
-                    </Switch>
-                </div>
-                <hr/>
+        let cookie = {};
+        const allCookies = document.cookie.split('; ');
+        allCookies.forEach(c =>{
+            const temp = c.split('=');
+            cookie[temp[0]] = temp[1];
+        });
 
-                <Footer />
-            </body>
-        </Router>
-    );
+        const id = isCookie(allCookies) ? cookie['id'] : "";
+        const name = isCookie(allCookies) ? cookie['name'] : "";
+        const permission = isCookie(allCookies) ? cookie['permission'] : "";
+
+        return [id, name, permission];
+    }
+    
+    let data = getCookies();
+    const permission = data[2];
+    
+    function routing(){
+        return (
+            <Router>
+                <body>
+                    <NavBar />
+
+                    <hr/>
+                        <div class="container">
+                            <Switch>
+                                <Route exact path="/" component={Main} />
+                                <Route path="/login" component={Login} />
+                                <Route path="/signup" component={SignUp} />
+                                <Route path="/games" component={Games} />
+                                <Route path="/addgamer" component={AddGamer} />
+                                <Route path="/addgame" component={AddGame} />
+                            </Switch>
+                        </div>
+                    <hr/>
+
+                    <Footer />
+                </body>
+            </Router>
+        );
+    }
+
+    if(['/addgamer', '/addgame'].indexOf(window.location.pathname) !== -1 && permission !== 'true'){
+        alert('권한이 없습니다.\n운영자에게 문의하세요.');
+        window.location.href = "/";
+    }
+    else{
+        return routing();
+    }
 }
 
 export default App;

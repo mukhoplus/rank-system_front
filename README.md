@@ -6,7 +6,7 @@ ESPers Starcraft Ranking System's Frontend
 
 ## Version
 
-0.2.1
+1.0.1
 
 ### How To Run
 
