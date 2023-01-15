@@ -9,10 +9,12 @@ import NavBar from './components/views/NavBar';
 import Main from './components/views/Main';
 import SignUp from './components/views/SignUp';
 import Login from './components/views/Login';
-import Games from './components/views/Games'
-import AddGamer from './components/views/AddGamer'
-import AddGame from './components/views/AddGame'
-import NameRanking from './components/views/NameRanking'
+import Games from './components/views/Games';
+import AddGamer from './components/views/AddGamer';
+import AddGame from './components/views/AddGame';
+import NameRanking from './components/views/NameRanking';
+import Record from './components/views/Record';
+import ViewRecord from './components/views/ViewRecord';
 import Footer from './components/views/Footer';
 
 function App() {
@@ -46,7 +48,7 @@ function App() {
                     <NavBar />
 
                     <hr/>
-                        <div class="container">
+                        <div className="container">
                             <Switch>
                                 <Route exact path="/" component={Main} />
                                 <Route path="/login" component={Login} />
@@ -55,6 +57,8 @@ function App() {
                                 <Route path="/addgamer" component={AddGamer} />
                                 <Route path="/addgame" component={AddGame} />
                                 <Route path="/nameranking" component={NameRanking} />
+                                <Route path="/record" component={Record} />
+                                <Route path="/viewrecord" component={ViewRecord} />
                             </Switch>
                         </div>
                     <hr/>

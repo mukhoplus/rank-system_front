@@ -46,15 +46,15 @@ function SignUp(){
 
     return(
         <div id='signup'>
-            <h4 class="text-center">회원가입</h4>
-            <form class="form" id="SignUpForm" name="SignUpForm" action="/signup" method="post">
-                <div class="field">
+            <h4 className="text-center">회원가입</h4>
+            <form className="form" id="SignUpForm" name="SignUpForm" action="/signup" method="post">
+                <div className="field">
                     <label for="id">
                         <b>아이디</b>
                     </label>
                     <input name="id" id="id" required minlength='5' maxlength='20' type="text" placeholder="ID" />
                 </div>
-                <div class="field">
+                <div className="field">
                     <label for="password">
                         <b>비밀번호</b>
                     </label>
@@ -67,7 +67,7 @@ function SignUp(){
                     <input name="name" id="name" required minlength='1' maxlength='10' type="text" placeholder="Name" />
                 </div>
                 <div>
-                    <button class="btn btn-primary" type="button" onClick={valueCheck}>회원가입</button>
+                    <button className="btn btn-primary" type="button" onClick={valueCheck}>회원가입</button>
                 </div>
             </form>
         </div>

@@ -14,7 +14,7 @@ function NameRanking(){
     return(
         <div id='nameranking'>
             <h4>개인 랭킹</h4>
-            <table class="table table-striped table-hover">
+            <table className="table table-striped table-hover">
                 <thead>
                     <th align="center">순위</th>
                     <th align="center">이름</th>

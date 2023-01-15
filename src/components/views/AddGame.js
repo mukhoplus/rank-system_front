@@ -49,8 +49,8 @@ function AddGame(){
     
     return(
         <div id='addgame'>
-            <h3 class="text-center">전적 추가</h3>
-            <form class="form" id="AddGameForm" name="AddGameForm" action="/addgame" method="post">
+            <h3 className="text-center">전적 추가</h3>
+            <form className="form" id="AddGameForm" name="AddGameForm" action="/addgame" method="post">
                 <div>
                     <label for="win_user">
                         <b>승리 선수</b>
@@ -100,7 +100,7 @@ function AddGame(){
                     </select>
                 </div>
                 <div>
-                    <button class="btn btn-success" type="button" onClick={valueCheck}>전적 추가</button>
+                    <button className="btn btn-success" type="button" onClick={valueCheck}>전적 추가</button>
                 </div>
             </form>
         </div>

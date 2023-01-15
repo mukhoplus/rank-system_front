@@ -55,11 +55,11 @@ function Header(){
         // 비로그인 상태 랜더링
         if(name === "" || name == undefined){
             return(
-                <div class="right navbar">
-                    <a class="btn btn-outline-primary me-2" href="/login">
+                <div className="right navbar">
+                    <a className="btn btn-outline-primary me-2" href="/login">
                         로그인
                     </a>
-                    <a class="btn btn-primary" href="/signup">
+                    <a className="btn btn-primary" href="/signup">
                         회원가입
                     </a>
                 </div>
@@ -68,9 +68,9 @@ function Header(){
         // 로그인 상태 랜더링
         else{
             return(
-                <div class="right navbar">
+                <div className="right navbar">
                     {name}님 반갑습니다.&nbsp;&nbsp;
-                    <a class="btn btn-primary" onClick={onLogoutHandler}>로그아웃</a>
+                    <a className="btn btn-primary" onClick={onLogoutHandler}>로그아웃</a>
                 </div>
             );
         }

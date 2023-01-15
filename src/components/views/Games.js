@@ -14,7 +14,7 @@ function Games(){
     return(
         <div id="games">
             <h4>전적 목록</h4>
-            <table class="table table-striped table-hover">
+            <table className="table table-striped table-hover">
                 <thead>
                     <th align="center">게임 번호</th>
                     <th align="center">승자</th>
