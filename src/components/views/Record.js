@@ -25,7 +25,7 @@ function Record(){
 
     return(
         <div id='record'>
-            <h4 className="text-center">선수 검색</h4>
+            <h4 className="text-center">선수 조회</h4>
             <form className="form" id="RecordForm" name="RecordForm" action="/viewrecord?name={name}" method="get">
                 <div className="field">
                     <label for="name">
@@ -41,7 +41,7 @@ function Record(){
                     </select>
                 </div>
                 <div className="field">
-                    <button className="btn btn-success" type="button" onClick={valueCheck}>선수 검색</button>
+                    <button className="btn btn-success" type="button" onClick={valueCheck}>선수 조회</button>
                 </div>
             </form>
         </div>

@@ -11,7 +11,7 @@ function ViewRecord(){
     
     useEffect(()=>{
         bug.current = true;
-        axios.get('/getrecord/?name='+name)
+        axios.get('/getrecord?name='+name)
         .then(response=>{
             setRecord(response.data);
         })

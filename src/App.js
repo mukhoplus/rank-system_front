@@ -15,6 +15,8 @@ import AddGame from './components/views/AddGame';
 import NameRanking from './components/views/NameRanking';
 import Record from './components/views/Record';
 import ViewRecord from './components/views/ViewRecord';
+import Relative from './components/views/Relative';
+import ViewRelative from './components/views/ViewRelative';
 import Footer from './components/views/Footer';
 
 function App() {
@@ -59,6 +61,8 @@ function App() {
                                 <Route path="/nameranking" component={NameRanking} />
                                 <Route path="/record" component={Record} />
                                 <Route path="/viewrecord" component={ViewRecord} />
+                                <Route path="/relative" component={Relative} />
+                                <Route path="/viewrelative" component={ViewRelative} />
                             </Switch>
                         </div>
                     <hr/>

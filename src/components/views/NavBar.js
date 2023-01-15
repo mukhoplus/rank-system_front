@@ -38,7 +38,12 @@ function NavBar(){
                 </li>
                 <li>
                     <a href="/record" className="nav-link px-2 link-dark">
-                        선수 검색
+                        선수 조회
+                    </a>
+                </li>
+                <li>
+                    <a href="/relative" className="nav-link px-2 link-dark">
+                        상대 전적
                     </a>
                 </li>
             </ui>
