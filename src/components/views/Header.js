@@ -50,6 +50,14 @@ function Header(){
     //const id = data[0];
     const name = data[1];
     const permission = data[2];
+
+    function updateCookie(){
+        const allCookies = document.cookie.split('; ');
+        allCookies.forEach(c =>{
+            const temp = c.split('=');
+            document.cookie = temp[0] + '=' + temp[1] + ";max-age=1200;path='/';";
+        });
+    }
     
     if(['/signup', '/login'].indexOf(window.location.pathname) === -1){      
         // 비로그인 상태 랜더링
@@ -67,6 +75,7 @@ function Header(){
         }
         // 로그인 상태 랜더링
         else{
+            updateCookie(); // 쿠키의 만료 시간까지 남은 시간을 20분으로 재설정
             return(
                 <div className="right navbar">
                     {name}님 반갑습니다.&nbsp;&nbsp;
