@@ -41,46 +41,52 @@ function ViewRelative(){
 
     // 버그 해결용 임시 코드(설명: ViewRecord)
     if(bug.current){
-        // TT, TP, TZ, PT, ..., ZP, ZZ
-        for(let i=0; i<9; i++){
-            let r = races[i%3];
-            allData.push({
-                "name": "vs "+r,
-                "wins": relative[i][0],
-                "loses": relative[i][1]
-            });
-            
+        // user1이나 user2가 DB에 없는 값인 경우
+        if(!relative.length){
+            alert('잘못된 접근입니다.');
+            window.location.href = "/relative";
         }
-        
-        // T, P, Z
-        let tempW = 0;
-        let tempL = 0;
-        for(let i=0; i<9; i++){
-            tempW += allData[i]["wins"];
-            tempL += allData[i]["loses"];
-
-            if(i % 3 === 2){
-                raceData.push({
-                    "name": races[(i+1)/3 -1],
-                    "wins": tempW,
-                    "loses": tempL
+        else{
+            // TT, TP, TZ, PT, ..., ZP, ZZ
+            for(let i=0; i<9; i++){
+                let r = races[i%3];
+                allData.push({
+                    "name": "vs "+r,
+                    "wins": relative[i][0],
+                    "loses": relative[i][1]
                 });
-                tempW = 0;
-                tempL = 0;
             }
-        }
+            
+            // T, P, Z
+            let tempW = 0;
+            let tempL = 0;
+            for(let i=0; i<9; i++){
+                tempW += allData[i]["wins"];
+                tempL += allData[i]["loses"];
 
-        // 전체 전적 갱신
-        for(let i=0; i<3; i++){
-            convertData[0]["wins"] += raceData[i]["wins"];
-            convertData[0]["loses"] += raceData[i]["loses"];
-        }
-        // 종족/종족별 세부 전적 순서대로 추가
-        for(let i=0; i<9; i++){
-            // 세부 입력 전 종족 전적 추가
-            if(i%3 === 0)
-                convertData.push(raceData[i/3]);
-            convertData.push(allData[i]);
+                if(i % 3 === 2){
+                    raceData.push({
+                        "name": races[(i+1)/3 -1],
+                        "wins": tempW,
+                        "loses": tempL
+                    });
+                    tempW = 0;
+                    tempL = 0;
+                }
+            }
+
+            // 전체 전적 갱신
+            for(let i=0; i<3; i++){
+                convertData[0]["wins"] += raceData[i]["wins"];
+                convertData[0]["loses"] += raceData[i]["loses"];
+            }
+            // 종족/종족별 세부 전적 순서대로 추가
+            for(let i=0; i<9; i++){
+                // 세부 입력 전 종족 전적 추가
+                if(i%3 === 0)
+                    convertData.push(raceData[i/3]);
+                convertData.push(allData[i]);
+            }
         }
     }
 
