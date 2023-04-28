@@ -49,7 +49,7 @@ function AddGame(){
     
     return(
         <div id='addgame'>
-            <h3 className="text-center">전적 추가</h3>
+            <h4 className="text-center">전적 추가</h4>
             <form className="form" id="AddGameForm" name="AddGameForm" action="/addgame" method="post">
                 <div>
                     <label for="win_user">
