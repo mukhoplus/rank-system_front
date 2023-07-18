@@ -4,6 +4,9 @@ ESPers Starcraft Ranking System's Frontend
 
 - [Main Repository](https://github.com/mukhoplus/rank-system)
 
+![image](https://github.com/mukhoplus/rank-system_front/assets/67003627/bc3ac2c4-f9ae-44f9-a1f4-0c6f3c49c07e)
+
+
 ## Version
 
 1.4.4
