@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function Main() {
+const Main = () => {
   const [ranking, setRanking] = useState([]);
   useEffect(() => {
     axios
@@ -49,6 +49,6 @@ function Main() {
       </table>
     </div>
   );
-}
+};
 
 export default Main;

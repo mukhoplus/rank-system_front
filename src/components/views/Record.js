@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function Record() {
+const Record = () => {
   const valueCheck = () => {
     const name = document.getElementById("name");
 
@@ -59,6 +59,6 @@ function Record() {
       </form>
     </div>
   );
-}
+};
 
 export default Record;

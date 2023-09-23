@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function NameRanking() {
+const NameRanking = () => {
   const [nameRanking, setNameRanking] = useState([]);
   useEffect(() => {
     axios
@@ -41,6 +41,6 @@ function NameRanking() {
       </table>
     </div>
   );
-}
+};
 
 export default NameRanking;

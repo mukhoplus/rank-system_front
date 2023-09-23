@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function Games() {
+const Games = () => {
   const [games, setGames] = useState([]);
   useEffect(() => {
     axios
@@ -41,6 +41,6 @@ function Games() {
       </table>
     </div>
   );
-}
+};
 
 export default Games;

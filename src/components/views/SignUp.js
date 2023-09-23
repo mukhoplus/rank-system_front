@@ -1,6 +1,6 @@
 import React from "react";
 
-function SignUp() {
+const SignUp = () => {
   const valueCheck = () => {
     const id = document.getElementById("id").value;
     const password = document.getElementById("password").value;
@@ -117,6 +117,6 @@ function SignUp() {
       </form>
     </div>
   );
-}
+};
 
 export default SignUp;

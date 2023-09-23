@@ -1,6 +1,6 @@
 import React from "react";
 
-function Login() {
+const Login = () => {
   return (
     <div id="login">
       <h3 className="text-center">로그인</h3>
@@ -30,6 +30,6 @@ function Login() {
       </form>
     </div>
   );
-}
+};
 
 export default Login;

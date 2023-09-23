@@ -1,6 +1,6 @@
 import React from "react";
 
-function AddGamer() {
+const AddGamer = () => {
   return (
     <div id="addgamer">
       <h4 className="text-center">선수 추가</h4>
@@ -35,6 +35,6 @@ function AddGamer() {
       </form>
     </div>
   );
-}
+};
 
 export default AddGamer;

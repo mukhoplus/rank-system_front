@@ -2,7 +2,7 @@
 import React from "react";
 import axios from "axios";
 
-function Header() {
+const Header = () => {
   const onLogoutHandler = () => {
     async function requestLogout() {
       await axios.delete("/logout").then((response) => {
@@ -24,10 +24,10 @@ function Header() {
   };
 
   function getCookies() {
-    function isCookie(obj) {
+    const isCookie = (obj) => {
       if (JSON.stringify(obj) === '[""]') return 0;
       else return Object.keys(obj).length;
-    }
+    };
 
     let cookie = {};
     const allCookies = document.cookie.split("; ");
@@ -48,13 +48,13 @@ function Header() {
   const name = data[1];
   const permission = data[2];
 
-  function updateCookie() {
+  const updateCookie = () => {
     const allCookies = document.cookie.split("; ");
     allCookies.forEach((c) => {
       const temp = c.split("=");
       document.cookie = temp[0] + "=" + temp[1] + ";max-age=1200;path='/';";
     });
-  }
+  };
 
   if (["/signup", "/login"].indexOf(window.location.pathname) === -1) {
     // 비로그인 상태 랜더링
@@ -83,6 +83,6 @@ function Header() {
       );
     }
   }
-}
+};
 
 export default Header;

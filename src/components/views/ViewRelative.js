@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
-function ViewRelative() {
+const ViewRelative = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const user1 = searchParams.get("user1");
@@ -118,7 +118,7 @@ function ViewRelative() {
       </table>
     </div>
   );
-}
+};
 
 function getWin_Rate(win, lose) {
   const wl = win + lose;

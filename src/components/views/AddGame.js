@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function AddGame() {
+const AddGame = () => {
   const valueCheck = () => {
     const winUser = document.getElementById("winUser");
     const loseUser = document.getElementById("loseUser");
@@ -118,6 +118,6 @@ function AddGame() {
       </form>
     </div>
   );
-}
+};
 
 export default AddGame;

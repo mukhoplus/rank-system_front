@@ -15,12 +15,12 @@ import Relative from "./components/views/Relative";
 import ViewRelative from "./components/views/ViewRelative";
 import Footer from "./components/views/Footer";
 
-function App() {
-  function getCookies() {
-    function isCookie(obj) {
+const App = () => {
+  const getCookies = () => {
+    const isCookie = (obj) => {
       if (JSON.stringify(obj) === '[""]') return 0;
       else return Object.keys(obj).length;
-    }
+    };
 
     let cookie = {};
     const allCookies = document.cookie.split("; ");
@@ -34,12 +34,12 @@ function App() {
     const permission = isCookie(allCookies) ? cookie["permission"] : "";
 
     return [id, name, permission];
-  }
+  };
 
   let data = getCookies();
   const permission = data[2];
 
-  function routing() {
+  const routing = () => {
     return (
       <Router>
         <body>
@@ -67,7 +67,7 @@ function App() {
         </body>
       </Router>
     );
-  }
+  };
 
   if (
     ["/addgamer", "/addgame"].indexOf(window.location.pathname) !== -1 &&
@@ -78,6 +78,6 @@ function App() {
   } else {
     return routing();
   }
-}
+};
 
 export default App;

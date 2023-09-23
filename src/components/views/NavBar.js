@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./Header";
 
-function NavBar() {
+const NavBar = () => {
   return (
     <nav className="navbar navbar-light static-top">
       <div className="left">
@@ -52,6 +52,6 @@ function NavBar() {
       </Router>
     </nav>
   );
-}
+};
 
 export default NavBar;

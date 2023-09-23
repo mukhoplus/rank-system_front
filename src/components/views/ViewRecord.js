@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
-function ViewRecord() {
+const ViewRecord = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const name = searchParams.get("name");
@@ -82,7 +82,7 @@ function ViewRecord() {
       </div>
     );
   }
-}
+};
 
 function getWinRate(win, lose) {
   const wl = win + lose;
