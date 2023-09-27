@@ -42,9 +42,8 @@ const App = () => {
   const routing = () => {
     return (
       <Router>
-        <body>
+        <div>
           <NavBar />
-
           <hr />
           <div className="container">
             <Switch>
@@ -62,9 +61,8 @@ const App = () => {
             </Switch>
           </div>
           <hr />
-
           <Footer />
-        </body>
+        </div>
       </Router>
     );
   };

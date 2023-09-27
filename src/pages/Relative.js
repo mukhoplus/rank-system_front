@@ -26,14 +26,15 @@ const Record = () => {
     document.RelativeForm.submit();
   };
 
+  const getGamers = async () => {
+    const response = await axios.get("/getgamers");
+    setGamers(response.data);
+  };
+
   const [gamers, setGamers] = useState([]);
+
   useEffect(() => {
-    axios
-      .get("/getgamers")
-      .then((response) => {
-        setGamers(response.data);
-      })
-      .catch((error) => console.log(error));
+    getGamers();
   }, []);
 
   return (

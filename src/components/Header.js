@@ -4,7 +4,7 @@ import axios from "axios";
 
 const Header = () => {
   const onLogoutHandler = () => {
-    async function requestLogout() {
+    const requestLogout = async () => {
       await axios.delete("/logout").then((response) => {
         if (response.data) {
           alert("로그아웃되었습니다.");
@@ -13,7 +13,7 @@ const Header = () => {
         }
         window.location.href = "/";
       });
-    }
+    };
 
     if ([undefined, ""].indexOf(name) !== -1) {
       alert("잘못된 접근입니다.");
@@ -23,13 +23,13 @@ const Header = () => {
     }
   };
 
-  function getCookies() {
+  const getCookies = () => {
     const isCookie = (obj) => {
       if (JSON.stringify(obj) === '[""]') return 0;
       else return Object.keys(obj).length;
     };
 
-    let cookie = {};
+    const cookie = {};
     const allCookies = document.cookie.split("; ");
     allCookies.forEach((c) => {
       const temp = c.split("=");
@@ -41,12 +41,12 @@ const Header = () => {
     const permission = isCookie(allCookies) ? cookie["permission"] : "";
 
     return [id, name, permission];
-  }
+  };
 
-  let data = getCookies();
+  const data = getCookies();
   //const id = data[0];
   const name = data[1];
-  const permission = data[2];
+  // const permission = data[2];
 
   const updateCookie = () => {
     const allCookies = document.cookie.split("; ");
@@ -74,12 +74,12 @@ const Header = () => {
     else {
       updateCookie(); // 쿠키의 만료 시간까지 남은 시간을 20분으로 재설정
       return (
-        <div className="right navbar">
+        <header className="right navbar">
           {name}님 반갑습니다.&nbsp;&nbsp;
           <a className="btn btn-primary" onClick={onLogoutHandler}>
             로그아웃
           </a>
-        </div>
+        </header>
       );
     }
   }

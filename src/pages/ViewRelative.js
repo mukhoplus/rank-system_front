@@ -10,22 +10,24 @@ const ViewRelative = () => {
   const [relative, setRelative] = useState([]);
   const bug = useRef(false);
 
+  const getRelative = async () => {
+    const response = await axios.get(
+      "/getrelative?user1=" + user1 + "&user2=" + user2
+    );
+    setRelative(response.data);
+  };
+
   useEffect(() => {
     bug.current = true;
-    axios
-      .get("/getrelative?user1=" + user1 + "&user2=" + user2)
-      .then((response) => {
-        setRelative(response.data);
-      })
-      .catch((error) => console.log(error));
+    getRelative();
     // eslint-disable-next-line
   }, []);
 
   const races = ["Terran", "Protoss", "Zerg"];
 
-  let allData = [];
-  let raceData = [];
-  let convertData = [
+  const allData = [];
+  const raceData = [];
+  const convertData = [
     {
       name: "전체",
       wins: 0,
@@ -82,6 +84,7 @@ const ViewRelative = () => {
         convertData[0]["wins"] += raceData[i]["wins"];
         convertData[0]["loses"] += raceData[i]["loses"];
       }
+
       // 종족/종족별 세부 전적 순서대로 추가
       for (let i = 0; i < 9; i++) {
         // 세부 입력 전 종족 전적 추가
@@ -98,20 +101,22 @@ const ViewRelative = () => {
       </h4>
       <table className="table table-striped table-hover">
         <thead>
-          <th align="center">구분</th>
-          <th align="center">전적</th>
-          <th align="center">승</th>
-          <th align="center">패</th>
-          <th align="center">승률</th>
+          <tr>
+            <th align="center">구분</th>
+            <th align="center">전적</th>
+            <th align="center">승</th>
+            <th align="center">패</th>
+            <th align="center">승률</th>
+          </tr>
         </thead>
         <tbody>
-          {convertData.map((data) => (
-            <tr align="center">
+          {convertData.map((data, index) => (
+            <tr align="center" key={data["name"] + index}>
               <td>{data["name"]}</td>
               <td>{data["wins"] + data["loses"]}</td>
               <td>{data["wins"]}</td>
               <td>{data["loses"]}</td>
-              <td>{getWin_Rate(data["wins"], data["loses"])}%</td>
+              <td>{getWinRate(data["wins"], data["loses"])}%</td>
             </tr>
           ))}
         </tbody>
@@ -120,17 +125,17 @@ const ViewRelative = () => {
   );
 };
 
-function getWin_Rate(win, lose) {
+const getWinRate = (win, lose) => {
   const wl = win + lose;
 
   if (wl === 0) return 0; // 전적이 없으면 0 반환
 
-  let win_rate = (win / wl) * 100;
+  let winRate = (win / wl) * 100;
+
+  // float형과 소수 아래 2번째 자리까지 반올림 한 값이 같은가?(==)
   // eslint-disable-next-line
-  if (win_rate == win_rate.toFixed(2))
-    // float형과 소수 아래 2번째 자리까지 반올림 한 값이 같은가?(==)
-    return win_rate; // 같으면 소숫점 없는 값으로 반환(int)
-  else return win_rate.toFixed(2); // 소숫점이 있으면 소수 아래 2번째 자리까지 반올림 한 값으로 반환(float)
-}
+  if (winRate == winRate.toFixed(2)) return winRate; // 같으면 소숫점 없는 값으로 반환(int)
+  return winRate.toFixed(2); // 소숫점이 있으면 소수 아래 2번째 자리까지 반올림 한 값으로 반환(float)
+};
 
 export default ViewRelative;

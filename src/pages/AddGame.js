@@ -39,13 +39,14 @@ const AddGame = () => {
   };
 
   const [gamers, setGamers] = useState([]);
+
+  const getGamers = async () => {
+    const response = await axios.get("/getgamers");
+    setGamers(response.data);
+  };
+
   useEffect(() => {
-    axios
-      .get("/getgamers")
-      .then((response) => {
-        setGamers(response.data);
-      })
-      .catch((error) => console.log(error));
+    getGamers();
   }, []);
 
   return (

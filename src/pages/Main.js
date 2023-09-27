@@ -2,17 +2,18 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const Main = () => {
+  const getRanking = async () => {
+    const response = await axios.get("/ranking");
+    setRanking(response.data);
+  };
+
   const [ranking, setRanking] = useState([]);
+
   useEffect(() => {
-    axios
-      .get("/ranking")
-      .then((response) => {
-        setRanking(response.data);
-      })
-      .catch((error) => console.log(error));
+    getRanking();
   }, []);
 
-  const convert_race = {
+  const convertRace = {
     Terran: "T",
     Protoss: "P",
     Zerg: "Z",
@@ -23,20 +24,22 @@ const Main = () => {
       <h4>랭킹</h4>
       <table className="table table-striped table-hover">
         <thead>
-          <th align="center">순위</th>
-          <th align="center">이름(종족)</th>
-          <th align="center">점수</th>
-          <th align="center">전적</th>
-          <th align="center">승</th>
-          <th align="center">패</th>
-          <th align="center">승률</th>
+          <tr>
+            <th align="center">순위</th>
+            <th align="center">이름(종족)</th>
+            <th align="center">점수</th>
+            <th align="center">전적</th>
+            <th align="center">승</th>
+            <th align="center">패</th>
+            <th align="center">승률</th>
+          </tr>
         </thead>
         <tbody>
           {ranking.map((gamer) => (
-            <tr align="center">
+            <tr align="center" key={gamer["rankNum"]}>
               <td>{gamer["rankNum"]}</td>
               <td>
-                {gamer["name"]}({convert_race[gamer["race"]]})
+                {gamer["name"]}({convertRace[gamer["race"]]})
               </td>
               <td>{gamer["rating"]}</td>
               <td>{gamer["wins"] + gamer["loses"]}</td>

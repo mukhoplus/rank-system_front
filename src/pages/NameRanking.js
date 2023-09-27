@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const NameRanking = () => {
+  const getNameRanking = async () => {
+    const response = await axios.get("/getnameranking");
+    setNameRanking(response.data);
+  };
+
   const [nameRanking, setNameRanking] = useState([]);
+
   useEffect(() => {
-    axios
-      .get("/getnameranking")
-      .then((response) => {
-        setNameRanking(response.data);
-      })
-      .catch((error) => console.log(error));
+    getNameRanking();
   }, []);
 
   return (
@@ -17,17 +18,19 @@ const NameRanking = () => {
       <h4>개인 랭킹</h4>
       <table className="table table-striped table-hover">
         <thead>
-          <th align="center">순위</th>
-          <th align="center">이름</th>
-          <th align="center">점수</th>
-          <th align="center">전적</th>
-          <th align="center">승</th>
-          <th align="center">패</th>
-          <th align="center">승률</th>
+          <tr>
+            <th align="center">순위</th>
+            <th align="center">이름</th>
+            <th align="center">점수</th>
+            <th align="center">전적</th>
+            <th align="center">승</th>
+            <th align="center">패</th>
+            <th align="center">승률</th>
+          </tr>
         </thead>
         <tbody>
           {nameRanking.map((gamer) => (
-            <tr align="center">
+            <tr align="center" key={gamer["rankNum"]}>
               <td>{gamer["rankNum"]}</td>
               <td>{gamer["name"]}</td>
               <td>{gamer["rating"]}</td>

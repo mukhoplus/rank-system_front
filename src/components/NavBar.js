@@ -1,5 +1,4 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./Header";
 
 const NavBar = () => {
@@ -10,7 +9,7 @@ const NavBar = () => {
           ESPers Starcraft Ranking System
         </a>
       </div>
-      <ui className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li>
           <a href="/" className="nav-link px-2 link-dark">
             메인 페이지
@@ -46,10 +45,9 @@ const NavBar = () => {
             상대 전적
           </a>
         </li>
-      </ui>
-      <Router>
-        <Header />
-      </Router>
+      </ul>
+
+      <Header />
     </nav>
   );
 };

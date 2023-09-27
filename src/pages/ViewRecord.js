@@ -9,29 +9,22 @@ const ViewRecord = () => {
   const [record, setRecord] = useState([]);
   const bug = useRef(false);
 
+  const getRecord = async () => {
+    const response = await axios.get("/getrecord?name=" + name);
+    setRecord(response.data);
+  };
+
   useEffect(() => {
+    if (!name) return;
     bug.current = true;
-    axios
-      .get("/getrecord?name=" + name)
-      .then((response) => {
-        setRecord(response.data);
-      })
-      .catch((error) => console.log(error));
+    getRecord();
     // eslint-disable-next-line
   }, []);
 
-  let gamer = {};
+  const gamer = {};
   gamer["name"] = "전체";
   gamer["wins"] = 0;
   gamer["loses"] = 0;
-
-  record.map((datas) =>
-    // eslint-disable-next-line
-    datas.map((data) => {
-      gamer["wins"] += data["wins"];
-      gamer["loses"] += data["loses"];
-    })
-  );
 
   if (name === "" || name === undefined || name === null) {
     alert("잘못된 접근입니다.");
@@ -50,15 +43,17 @@ const ViewRecord = () => {
         <h4>{name}</h4>
         <table className="table table-striped table-hover">
           <thead>
-            <th align="center">종족</th>
-            <th align="center">전적</th>
-            <th align="center">승</th>
-            <th align="center">패</th>
-            <th align="center">승률</th>
+            <tr>
+              <th align="center">종족</th>
+              <th align="center">전적</th>
+              <th align="center">승</th>
+              <th align="center">패</th>
+              <th align="center">승률</th>
+            </tr>
           </thead>
           <tbody>
             {
-              <tr align="center">
+              <tr align="center" key="전체">
                 <td>{gamer["name"]}</td>
                 <td>{gamer["wins"] + gamer["loses"]}</td>
                 <td>{gamer["wins"]}</td>
@@ -68,7 +63,7 @@ const ViewRecord = () => {
             }
             {record.map((datas) =>
               datas.map((data) => (
-                <tr align="center">
+                <tr align="center" key={data["race"]}>
                   <td>{data["race"]}</td>
                   <td>{data["wins"] + data["loses"]}</td>
                   <td>{data["wins"]}</td>
@@ -84,17 +79,17 @@ const ViewRecord = () => {
   }
 };
 
-function getWinRate(win, lose) {
+const getWinRate = (win, lose) => {
   const wl = win + lose;
 
   if (wl === 0) return 0; // 전적이 없으면 0 반환
 
   let winRate = (win / wl) * 100;
+
+  // float형과 소수 아래 2번째 자리까지 반올림 한 값이 같은가?(==)
   // eslint-disable-next-line
-  if (winRate == winRate.toFixed(2))
-    // float형과 소수 아래 2번째 자리까지 반올림 한 값이 같은가?(==)
-    return winRate; // 같으면 소숫점 없는 값으로 반환(int)
-  else return winRate.toFixed(2); // 소숫점이 있으면 소수 아래 2번째 자리까지 반올림 한 값으로 반환(float)
-}
+  if (winRate == winRate.toFixed(2)) return winRate; // 같으면 소숫점 없는 값으로 반환(int)
+  return winRate.toFixed(2); // 소숫점이 있으면 소수 아래 2번째 자리까지 반올림 한 값으로 반환(float)
+};
 
 export default ViewRecord;
