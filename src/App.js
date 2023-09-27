@@ -1,19 +1,19 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import NavBar from "./components/views/NavBar";
-import Main from "./components/views/Main";
-import SignUp from "./components/views/SignUp";
-import Login from "./components/views/Login";
-import Games from "./components/views/Games";
-import AddGamer from "./components/views/AddGamer";
-import AddGame from "./components/views/AddGame";
-import NameRanking from "./components/views/NameRanking";
-import Record from "./components/views/Record";
-import ViewRecord from "./components/views/ViewRecord";
-import Relative from "./components/views/Relative";
-import ViewRelative from "./components/views/ViewRelative";
-import Footer from "./components/views/Footer";
+import NavBar from "./components/NavBar";
+import Main from "./pages/Main";
+import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
+import Games from "./pages/Games";
+import AddGamer from "./pages/AddGamer";
+import AddGame from "./pages/AddGame";
+import NameRanking from "./pages/NameRanking";
+import Record from "./pages/Record";
+import ViewRecord from "./pages/ViewRecord";
+import Relative from "./pages/Relative";
+import ViewRelative from "./pages/ViewRelative";
+import Footer from "./components/Footer";
 
 const App = () => {
   const getCookies = () => {
@@ -22,7 +22,7 @@ const App = () => {
       else return Object.keys(obj).length;
     };
 
-    let cookie = {};
+    const cookie = {};
     const allCookies = document.cookie.split("; ");
     allCookies.forEach((c) => {
       const temp = c.split("=");
@@ -36,7 +36,7 @@ const App = () => {
     return [id, name, permission];
   };
 
-  let data = getCookies();
+  const data = getCookies();
   const permission = data[2];
 
   const routing = () => {
