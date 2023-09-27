@@ -50,7 +50,7 @@ const SignUp = () => {
       return false;
     }
 
-    document.SignUpFormDto.submit();
+    document.SignUpForm.submit();
   };
 
   return (
@@ -58,8 +58,8 @@ const SignUp = () => {
       <h4 className="text-center">회원가입</h4>
       <form
         className="form"
-        id="SignUpFormDto"
-        name="SignUpFormDto"
+        id="SignUpForm"
+        name="SignUpForm"
         action="/signup"
         method="post"
       >

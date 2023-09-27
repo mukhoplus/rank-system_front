@@ -35,7 +35,7 @@ const AddGame = () => {
       return false;
     }
 
-    document.AddGameFormDto.submit();
+    document.AddGameForm.submit();
   };
 
   const [gamers, setGamers] = useState([]);
@@ -54,8 +54,8 @@ const AddGame = () => {
       <h4 className="text-center">전적 추가</h4>
       <form
         className="form"
-        id="AddGameFormDto"
-        name="AddGameFormDto"
+        id="AddGameForm"
+        name="AddGameForm"
         action="/addgame"
         method="post"
       >

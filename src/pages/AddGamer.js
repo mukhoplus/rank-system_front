@@ -6,8 +6,8 @@ const AddGamer = () => {
       <h4 className="text-center">선수 추가</h4>
       <form
         className="form"
-        id="AddGamerFormDto"
-        name="AddGamerFormDto"
+        id="AddGamerForm"
+        name="AddGamerForm"
         action="/addgamer"
         method="post"
       >
