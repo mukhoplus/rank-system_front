@@ -4,7 +4,7 @@ const Login = () => {
   return (
     <div id="login">
       <h3 className="text-center">로그인</h3>
-      <form className="form" id="LoginFormDto" action="/login" method="post">
+      <form className="form" id="LoginForm" action="/login" method="post">
         <div className="field">
           <label for="id">
             <b>아이디</b>
