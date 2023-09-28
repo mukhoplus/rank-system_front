@@ -6,20 +6,20 @@ const Login = () => {
       <h3 className="text-center">로그인</h3>
       <form className="form" id="LoginForm" action="/login" method="post">
         <div className="field">
-          <label for="id">
+          <label htmlFor="id">
             <b>아이디</b>
           </label>
-          <input name="id" id="id" type="text" placeholder="ID" />
+          <input name="id" id="id" type="text" placeholder="아이디" />
         </div>
         <div className="field">
-          <label for="password">
+          <label htmlFor="password">
             <b>비밀번호</b>
           </label>
           <input
             name="password"
             id="password"
             type="password"
-            placeholder="Password"
+            placeholder="비밀번호"
           />
         </div>
         <div>

@@ -17,7 +17,6 @@ const ViewRelative = () => {
     setRelative(response.data);
   };
 
-  console.log(user1 + user2);
   useEffect(() => {
     bug.current = true;
     getRelativeRecord();

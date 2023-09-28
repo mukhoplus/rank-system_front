@@ -64,43 +64,43 @@ const SignUp = () => {
         method="post"
       >
         <div className="field">
-          <label for="id">
+          <label htmlFor="id">
             <b>아이디</b>
           </label>
           <input
             name="id"
             id="id"
             required
-            minlength="5"
-            maxlength="20"
+            minLength="5"
+            maxLength="20"
             type="text"
             placeholder="아이디"
           />
         </div>
         <div className="field">
-          <label for="password">
+          <label htmlFor="password">
             <b>비밀번호</b>
           </label>
           <input
             name="password"
             id="password"
             required
-            minlength="4"
-            maxlength="20"
+            minLength="4"
+            maxLength="20"
             type="password"
             placeholder="비밀번호"
           />
         </div>
-        <div class="field">
-          <label for="name">
+        <div className="field">
+          <label htmlFor="name">
             <b>이름</b>
           </label>
           <input
             name="name"
             id="name"
             required
-            minlength="1"
-            maxlength="10"
+            minLength="1"
+            maxLength="10"
             type="text"
             placeholder="이름"
           />

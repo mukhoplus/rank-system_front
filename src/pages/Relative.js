@@ -48,7 +48,7 @@ const Record = () => {
         method="get"
       >
         <div className="field">
-          <label for="user1">
+          <label htmlFor="user1">
             <b>선수 1</b>
           </label>
           <select name="user1" id="user1">
@@ -61,7 +61,7 @@ const Record = () => {
           </select>
         </div>
         <div className="field">
-          <label for="user2">
+          <label htmlFor="user2">
             <b>선수 2</b>
           </label>
           <select name="user2" id="user2">

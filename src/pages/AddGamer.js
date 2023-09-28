@@ -12,7 +12,7 @@ const AddGamer = () => {
         method="post"
       >
         <div className="field">
-          <label for="name">
+          <label htmlFor="name">
             <b>이름</b>
           </label>
           <input
@@ -20,10 +20,10 @@ const AddGamer = () => {
             name="name"
             id="name"
             required
-            minlength="1"
-            maxlength="10"
+            minLength="1"
+            maxLength="10"
             type="text"
-            placeholder="Name"
+            placeholder="이름"
             title="1~10자를 입력하세요."
           />
         </div>

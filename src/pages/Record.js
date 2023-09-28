@@ -36,7 +36,7 @@ const Record = () => {
         method="get"
       >
         <div className="field">
-          <label for="name">
+          <label htmlFor="name">
             <b>이름</b>
           </label>
           <select name="name" id="name">

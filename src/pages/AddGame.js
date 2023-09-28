@@ -60,7 +60,7 @@ const AddGame = () => {
         method="post"
       >
         <div>
-          <label for="winUser">
+          <label htmlFor="winUser">
             <b>승리 선수</b>
           </label>
           <select name="winUser" id="winUser">
@@ -73,7 +73,7 @@ const AddGame = () => {
           </select>
         </div>
         <div>
-          <label for="winRace">
+          <label htmlFor="winRace">
             <b>승리 선수 종족</b>
           </label>
           <select name="winRace" id="winRace">
@@ -84,7 +84,7 @@ const AddGame = () => {
           </select>
         </div>
         <div>
-          <label for="loseUser">
+          <label htmlFor="loseUser">
             <b>패배 선수</b>
           </label>
           <select name="loseUser" id="loseUser">
@@ -97,7 +97,7 @@ const AddGame = () => {
           </select>
         </div>
         <div>
-          <label for="loseRace">
+          <label htmlFor="loseRace">
             <b>패배 선수 종족</b>
           </label>
           <select name="loseRace" id="loseRace">
