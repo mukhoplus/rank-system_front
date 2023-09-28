@@ -6,7 +6,7 @@ const Header = () => {
   const onLogoutHandler = () => {
     const requestLogout = async () => {
       await axios.delete("/logout").then((response) => {
-        if (response.data) {
+        if (response.status === 200) {
           alert("로그아웃되었습니다.");
         } else {
           alert("잘못된 접근입니다.");

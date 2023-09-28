@@ -74,7 +74,7 @@ const SignUp = () => {
             minlength="5"
             maxlength="20"
             type="text"
-            placeholder="ID"
+            placeholder="아이디"
           />
         </div>
         <div className="field">
@@ -88,7 +88,7 @@ const SignUp = () => {
             minlength="4"
             maxlength="20"
             type="password"
-            placeholder="Password"
+            placeholder="비밀번호"
           />
         </div>
         <div class="field">
@@ -102,7 +102,7 @@ const SignUp = () => {
             minlength="1"
             maxlength="10"
             type="text"
-            placeholder="Name"
+            placeholder="이름"
           />
         </div>
         <div>

@@ -69,7 +69,7 @@ const App = () => {
 
   if (
     ["/addgamer", "/addgame"].indexOf(window.location.pathname) !== -1 &&
-    permission !== "true"
+    permission === ""
   ) {
     alert("권한이 없습니다.\n운영자에게 문의하세요.");
     window.location.href = "/";
