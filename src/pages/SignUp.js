@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 
 const SignUp = () => {
+  const idRef = useRef();
+  const passwordRef = useRef();
+  const nameRef = useRef();
+
   const valueCheck = () => {
     const id = document.getElementById("id").value;
     const password = document.getElementById("password").value;
@@ -8,17 +12,17 @@ const SignUp = () => {
 
     if (id === "") {
       alert("아이디를 입력하세요.");
-      id.focus();
+      idRef.current.focus();
       return false;
     }
     if (password === "") {
       alert("비밀번호를 입력하세요.");
-      password.focus();
+      passwordRef.current.focus();
       return false;
     }
     if (name === "") {
       alert("이름을 입력하세요.");
-      name.focus();
+      nameRef.current.focus();
       return false;
     }
 
@@ -27,7 +31,7 @@ const SignUp = () => {
       alert(
         "아이디는 5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다."
       );
-      id.focus();
+      idRef.current.focus();
       return false;
     }
     const checkPassword = /^[a-zA-Z0-9-_!@#$%^*+=]+$/g;
@@ -38,7 +42,7 @@ const SignUp = () => {
       alert(
         "비밀번호는 4~20자의 영어 대소문자, 숫자와 특수기호만 사용 가능합니다."
       );
-      password.focus();
+      passwordRef.current.focus();
       return false;
     }
     const checkName = /^[a-zA-Z0-9가-힣-_!@#$%^*+=]+$/g;
@@ -46,7 +50,7 @@ const SignUp = () => {
       alert(
         "이름은 1~10자의 한글, 영어 대소문자, 숫자와 특수기호만 사용 가능합니다."
       );
-      name.focus();
+      nameRef.current.focus();
       return false;
     }
 
@@ -70,6 +74,7 @@ const SignUp = () => {
           <input
             name="id"
             id="id"
+            ref={idRef}
             required
             minLength="5"
             maxLength="20"
@@ -84,6 +89,7 @@ const SignUp = () => {
           <input
             name="password"
             id="password"
+            ref={passwordRef}
             required
             minLength="4"
             maxLength="20"
@@ -98,6 +104,7 @@ const SignUp = () => {
           <input
             name="name"
             id="name"
+            ref={nameRef}
             required
             minLength="1"
             maxLength="10"

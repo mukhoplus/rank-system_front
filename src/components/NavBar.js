@@ -1,7 +1,9 @@
 import React from "react";
 import Header from "./Header";
 
-const NavBar = () => {
+const NavBar = ({ session }) => {
+  const permission = session["permission"] || "";
+
   return (
     <nav className="navbar navbar-light static-top">
       <div className="left">
@@ -45,9 +47,18 @@ const NavBar = () => {
             상대 전적
           </a>
         </li>
+        {permission === "master" ? (
+          <li>
+            <a href="/admin" className="nav-link px-2 link-dark">
+              관리자
+            </a>
+          </li>
+        ) : (
+          <></>
+        )}
       </ul>
 
-      <Header />
+      <Header session={session} />
     </nav>
   );
 };

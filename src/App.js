@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import NavBar from "./components/NavBar";
@@ -13,68 +13,72 @@ import Record from "./pages/Record";
 import ViewRecord from "./pages/ViewRecord";
 import Relative from "./pages/Relative";
 import ViewRelative from "./pages/ViewRelative";
+import Admin from "./pages/Admin";
 import Footer from "./components/Footer";
+import axios from "axios";
 
 const App = () => {
-  const getCookies = () => {
-    const isCookie = (obj) => {
-      if (JSON.stringify(obj) === '[""]') return 0;
-      else return Object.keys(obj).length;
-    };
+  const [session, setSession] = useState({});
 
-    const cookie = {};
-    const allCookies = document.cookie.split("; ");
-    allCookies.forEach((c) => {
-      const temp = c.split("=");
-      cookie[temp[0]] = temp[1];
+  const getSession = async () => {
+    await axios.get("/hello").then((response) => {
+      setSession(response.data);
     });
-
-    const id = isCookie(allCookies) ? cookie["id"] : "";
-    const name = isCookie(allCookies) ? cookie["name"] : "";
-    const permission = isCookie(allCookies) ? cookie["permission"] : "";
-
-    return [id, name, permission];
   };
 
-  const data = getCookies();
-  const permission = data[2];
+  useEffect(() => {
+    getSession();
+  }, []);
+
+  const permission = session["permission"] || "";
 
   const routing = () => {
     return (
-      <Router>
-        <div>
-          <NavBar />
-          <hr />
-          <div className="container">
-            <Switch>
-              <Route exact path="/" component={Main} />
-              <Route path="/login" component={Login} />
-              <Route path="/signup" component={SignUp} />
-              <Route path="/games" component={Games} />
-              <Route path="/addgamer" component={AddGamer} />
-              <Route path="/addgame" component={AddGame} />
-              <Route path="/nameranking" component={NameRanking} />
-              <Route path="/record" component={Record} />
-              <Route path="/viewrecord" component={ViewRecord} />
-              <Route path="/relative" component={Relative} />
-              <Route path="/viewrelative" component={ViewRelative} />
-            </Switch>
+      <>
+        <NavBar session={session} />
+        <Router>
+          <div>
+            <hr />
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={Main} />
+                <Route path="/login" component={Login} />
+                <Route path="/signup" component={SignUp} />
+                <Route path="/games" component={Games} />
+                <Route path="/addgamer" component={AddGamer} />
+                <Route path="/addgame" component={AddGame} />
+                <Route path="/nameranking" component={NameRanking} />
+                <Route path="/record" component={Record} />
+                <Route path="/viewrecord" component={ViewRecord} />
+                <Route path="/relative" component={Relative} />
+                <Route path="/viewrelative" component={ViewRelative} />
+                <Route path="/admin" component={Admin} />
+              </Switch>
+            </div>
+            <hr />
           </div>
-          <hr />
-          <Footer />
-        </div>
-      </Router>
+        </Router>
+        <Footer />
+      </>
     );
   };
 
-  if (
-    ["/addgamer", "/addgame"].indexOf(window.location.pathname) !== -1 &&
-    permission === ""
-  ) {
-    alert("권한이 없습니다.\n운영자에게 문의하세요.");
-    window.location.href = "/";
-  } else {
-    return routing();
+  if (Object.keys(session).length !== 0) {
+    if (
+      ["/addgamer", "/addgame"].indexOf(window.location.pathname) !== -1 &&
+      !permission
+    ) {
+      alert("권한이 없습니다.\n운영자에게 문의하세요.");
+      window.location.href = "/";
+    } else if (
+      ["/admin"].indexOf(window.location.pathname) !== -1 &&
+      permission !== "master"
+    ) {
+      alert("권한이 없습니다.\n운영자에게 문의하세요.");
+      window.location.href = "/";
+    } else {
+      return routing();
+    }
   }
 };
 

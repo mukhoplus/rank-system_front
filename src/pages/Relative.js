@@ -1,25 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
 const Record = () => {
+  const user1Ref = useRef();
+  const user2Ref = useRef();
+
   const valueCheck = () => {
     const user1 = document.getElementById("user1");
     const user2 = document.getElementById("user2");
 
     if (user1.value === "") {
       alert("선수 1을 선택하세요");
-      user1.focus();
+      user1Ref.current.focus();
       return false;
     }
     if (user2.value === "") {
       alert("선수 2를 선택하세요");
-      user2.focus();
+      user2Ref.current.focus();
       return false;
     }
 
     if (user1.value === user2.value) {
       alert("선수 1과 선수 2가 같습니다.");
-      user2.focus();
+      user2Ref.current.focus();
       return false;
     }
 
@@ -51,7 +54,7 @@ const Record = () => {
           <label htmlFor="user1">
             <b>선수 1</b>
           </label>
-          <select name="user1" id="user1">
+          <select name="user1" id="user1" ref={user1Ref}>
             <option value="">선수 1</option>
             {gamers.map((name) => (
               <option value={name} key={name}>
@@ -64,7 +67,7 @@ const Record = () => {
           <label htmlFor="user2">
             <b>선수 2</b>
           </label>
-          <select name="user2" id="user2">
+          <select name="user2" id="user2" ref={user2Ref}>
             <option value="">선수 2</option>
             {gamers.map((name) => (
               <option value={name} key={name}>

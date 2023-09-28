@@ -2,7 +2,7 @@
 import React from "react";
 import axios from "axios";
 
-const Header = () => {
+const Header = ({ session }) => {
   const onLogoutHandler = () => {
     const requestLogout = async () => {
       await axios.delete("/logout").then((response) => {
@@ -23,38 +23,7 @@ const Header = () => {
     }
   };
 
-  const getCookies = () => {
-    const isCookie = (obj) => {
-      if (JSON.stringify(obj) === '[""]') return 0;
-      else return Object.keys(obj).length;
-    };
-
-    const cookie = {};
-    const allCookies = document.cookie.split("; ");
-    allCookies.forEach((c) => {
-      const temp = c.split("=");
-      cookie[temp[0]] = temp[1];
-    });
-
-    const id = isCookie(allCookies) ? cookie["id"] : "";
-    const name = isCookie(allCookies) ? cookie["name"] : "";
-    const permission = isCookie(allCookies) ? cookie["permission"] : "";
-
-    return [id, name, permission];
-  };
-
-  const data = getCookies();
-  //const id = data[0];
-  const name = data[1];
-  // const permission = data[2];
-
-  const updateCookie = () => {
-    const allCookies = document.cookie.split("; ");
-    allCookies.forEach((c) => {
-      const temp = c.split("=");
-      document.cookie = temp[0] + "=" + temp[1] + ";max-age=1200;path='/';";
-    });
-  };
+  const name = session["name"];
 
   if (["/signup", "/login"].indexOf(window.location.pathname) === -1) {
     // 비로그인 상태 랜더링
@@ -72,7 +41,6 @@ const Header = () => {
     }
     // 로그인 상태 랜더링
     else {
-      updateCookie(); // 쿠키의 만료 시간까지 남은 시간을 20분으로 재설정
       return (
         <header className="right navbar">
           {name}님 반갑습니다.&nbsp;&nbsp;

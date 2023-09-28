@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
 const Record = () => {
+  const nameRef = useRef();
+
   const valueCheck = () => {
     const name = document.getElementById("name");
 
     if (name.value === "") {
       alert("이름을 선택하세요");
-      name.focus();
+      nameRef.current.focus();
       return false;
     }
 
@@ -39,7 +41,7 @@ const Record = () => {
           <label htmlFor="name">
             <b>이름</b>
           </label>
-          <select name="name" id="name">
+          <select name="name" id="name" ref={nameRef}>
             <option value="">이름</option>
             {gamers.map((name) => (
               <option value={name} key={name}>
