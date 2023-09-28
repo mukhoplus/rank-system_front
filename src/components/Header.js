@@ -5,14 +5,20 @@ import axios from "axios";
 const Header = ({ session }) => {
   const onLogoutHandler = () => {
     const requestLogout = async () => {
-      await axios.delete("/logout").then((response) => {
-        if (response.status === 200) {
-          alert("로그아웃되었습니다.");
-        } else {
+      await axios
+        .delete("/logout")
+        .then((response) => {
+          if (response.status === 200) {
+            alert("로그아웃되었습니다.");
+          } else {
+            alert("잘못된 접근입니다.");
+          }
+          window.location.href = "/";
+        })
+        .catch((error) => {
           alert("잘못된 접근입니다.");
-        }
-        window.location.href = "/";
-      });
+          window.location.href = "/";
+        });
     };
 
     if ([undefined, ""].indexOf(name) !== -1) {
