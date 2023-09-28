@@ -10,16 +10,17 @@ const ViewRelative = () => {
   const [relative, setRelative] = useState([]);
   const bug = useRef(false);
 
-  const getRelative = async () => {
+  const getRelativeRecord = async () => {
     const response = await axios.get(
-      "/getrelative?user1=" + user1 + "&user2=" + user2
+      "/r/relative?user1=" + user1 + "&user2=" + user2
     );
     setRelative(response.data);
   };
 
+  console.log(user1 + user2);
   useEffect(() => {
     bug.current = true;
-    getRelative();
+    getRelativeRecord();
     // eslint-disable-next-line
   }, []);
 

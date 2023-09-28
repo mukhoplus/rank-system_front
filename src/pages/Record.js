@@ -15,7 +15,7 @@ const Record = () => {
   };
 
   const getGamers = async () => {
-    const response = await axios.get("/getgamers");
+    const response = await axios.get("/gamer");
     setGamers(response.data);
   };
 

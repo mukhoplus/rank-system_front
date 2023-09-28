@@ -8,7 +8,7 @@ const AddGamer = () => {
         className="form"
         id="AddGamerForm"
         name="AddGamerForm"
-        action="/addgamer"
+        action="/gamer"
         method="post"
       >
         <div className="field">

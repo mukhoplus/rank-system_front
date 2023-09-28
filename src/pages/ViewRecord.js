@@ -10,7 +10,7 @@ const ViewRecord = () => {
   const bug = useRef(false);
 
   const getRecord = async () => {
-    const response = await axios.get("/getrecord?name=" + name);
+    const response = await axios.get("/r/record?name=" + name);
     setRecord(response.data);
   };
 

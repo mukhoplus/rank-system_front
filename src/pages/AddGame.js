@@ -41,7 +41,7 @@ const AddGame = () => {
   const [gamers, setGamers] = useState([]);
 
   const getGamers = async () => {
-    const response = await axios.get("/getgamers");
+    const response = await axios.get("/gamer");
     setGamers(response.data);
   };
 
@@ -56,7 +56,7 @@ const AddGame = () => {
         className="form"
         id="AddGameForm"
         name="AddGameForm"
-        action="/addgame"
+        action="/game"
         method="post"
       >
         <div>

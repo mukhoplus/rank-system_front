@@ -3,7 +3,7 @@ import axios from "axios";
 
 const NameRanking = () => {
   const getNameRanking = async () => {
-    const response = await axios.get("/getnameranking");
+    const response = await axios.get("/ranking/name");
     setNameRanking(response.data);
   };
 

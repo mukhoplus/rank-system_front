@@ -3,7 +3,7 @@ import axios from "axios";
 
 const Games = () => {
   const getGames = async () => {
-    const response = await axios.get("/getgames");
+    const response = await axios.get("/game");
     setGames(response.data);
   };
 
