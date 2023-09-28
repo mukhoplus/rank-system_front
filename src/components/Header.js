@@ -16,7 +16,7 @@ const Header = ({ session }) => {
           window.location.href = "/";
         })
         .catch(() => {
-          alert("세션이 만료되었습니다.");
+          alert("잘못된 접근입니다.");
           window.location.href = "/";
         });
     };
