@@ -76,6 +76,11 @@ const App = () => {
     ) {
       alert("권한이 없습니다.\n운영자에게 문의하세요.");
       window.location.href = "/";
+    } else if (
+      ["/login", "/signup"].indexOf(window.location.pathname) !== -1 &&
+      session["id"]
+    ) {
+      window.location.href = "/";
     } else {
       return routing();
     }
