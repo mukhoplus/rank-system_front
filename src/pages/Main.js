@@ -26,7 +26,7 @@ const Main = () => {
         <thead>
           <tr>
             <th align="center">순위</th>
-            <th align="center">이름(종족)</th>
+            <th align="center">이름</th>
             <th align="center">점수</th>
             <th align="center">전적</th>
             <th align="center">승</th>

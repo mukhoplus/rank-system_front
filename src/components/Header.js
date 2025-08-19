@@ -35,7 +35,7 @@ const Header = ({ session }) => {
     // 비로그인 상태 랜더링
     if (name === "" || name == undefined) {
       return (
-        <div className="right navbar">
+        <div className="navbar-nav flex-row">
           <a className="btn btn-outline-primary me-2" href="/login">
             로그인
           </a>
@@ -48,12 +48,12 @@ const Header = ({ session }) => {
     // 로그인 상태 랜더링
     else {
       return (
-        <header className="right navbar">
-          {name}님 반갑습니다.&nbsp;&nbsp;
+        <div className="navbar-nav flex-row align-items-center">
+          <span className="navbar-text me-3">{name}님 반갑습니다.</span>
           <a className="btn btn-primary" onClick={onLogoutHandler}>
             로그아웃
           </a>
-        </header>
+        </div>
       );
     }
   }
