@@ -23,7 +23,7 @@ const Login = () => {
           />
         </div>
         <div>
-          <button className="btn btn-outline-primary me-2" type="submit">
+          <button className="btn btn-primary" type="submit">
             로그인
           </button>
         </div>
