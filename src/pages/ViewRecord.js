@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
@@ -9,11 +9,22 @@ const ViewRecord = () => {
   const [record, setRecord] = useState([]);
   const bug = useRef(false);
 
-  const gamer = {
-    name: "전체",
-    wins: 0,
-    loses: 0,
-  };
+  const gamer = useMemo(() => {
+    const result = {
+      name: "전체",
+      wins: 0,
+      loses: 0,
+    };
+
+    result.forEach((datas) => {
+      datas.forEach((data) => {
+        result.wins += data["wins"];
+        result.loses += data["loses"];
+      });
+    });
+
+    return result;
+  }, [record]);
 
   const getRecord = async () => {
     const response = await axios.get("/r/record?name=" + name);
