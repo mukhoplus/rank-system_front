@@ -16,7 +16,7 @@ const ViewRecord = () => {
       loses: 0,
     };
 
-    result.forEach((datas) => {
+    record.forEach((datas) => {
       datas.forEach((data) => {
         result.wins += data["wins"];
         result.loses += data["loses"];
