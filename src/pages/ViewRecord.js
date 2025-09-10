@@ -9,9 +9,22 @@ const ViewRecord = () => {
   const [record, setRecord] = useState([]);
   const bug = useRef(false);
 
+  const gamer = {
+    name: "전체",
+    wins: 0,
+    loses: 0,
+  };
+
   const getRecord = async () => {
     const response = await axios.get("/r/record?name=" + name);
     setRecord(response.data);
+
+    response.data.forEach((datas) => {
+      datas.forEach((data) => {
+        gamer["wins"] += data["wins"];
+        gamer["loses"] += data["loses"];
+      });
+    });
   };
 
   useEffect(() => {
@@ -20,11 +33,6 @@ const ViewRecord = () => {
     getRecord();
     // eslint-disable-next-line
   }, []);
-
-  const gamer = {};
-  gamer["name"] = "전체";
-  gamer["wins"] = 0;
-  gamer["loses"] = 0;
 
   if (name === "" || name === undefined || name === null) {
     alert("잘못된 접근입니다.");
